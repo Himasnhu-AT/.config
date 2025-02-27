@@ -50,23 +50,12 @@ if [ "$INSTALL_CUSTOM_NODES_DEPENDENCIES" = true ]; then
 fi
 
 # Install and start Cloudflared
+# TODO if CloudFlare isn't installed, install it
 echo "-= Installing Cloudflared =-"
 wget -P ~ https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-dpkg -i ~/cloudflared-linux-amd64.deb
-
-# Start ComfyUI and Cloudflared tunnel
-function start_cloudflared() {
-    while ! nc -z 127.0.0.1 8188; do
-        sleep 0.5
-    done
-    echo "\nComfyUI finished loading, trying to launch cloudflared (if it gets stuck here cloudflared is having issues)\n"
-    cloudflared tunnel --url http://127.0.0.1:8188 &
-}
-
-start_cloudflared &
-
-# Run ComfyUI
-echo "-= Starting ComfyUI =-"
-python3 main.py --dont-print-server
+sudo dpkg -i ~/cloudflared-linux-amd64.deb
 
 echo "-= Installation complete! =-"
+
+# move run.py in comfyUI, then run it
+
