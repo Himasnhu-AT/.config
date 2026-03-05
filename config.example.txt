@@ -1,0 +1,8 @@
+# Set to 'y' to install/configure, 'n' to skip
+docker=y
+git=y
+gh=y
+rust=y
+nvim=y
+tmux=y
+comfy=n

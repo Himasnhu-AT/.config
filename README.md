@@ -50,25 +50,42 @@ Automates the setup of ComfyUI with:
 - Custom nodes
 - Cloud access via Cloudflare Tunnel
 
-## Usage
+## Quick Start (Zero-Clone)
 
-1. Clone this repository:
+Run the following command to start the installation automatically on macOS (Homebrew), Ubuntu/Debian (apt), or Alpine (apk):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Himasnhu-AT/.config/refs/heads/main/main.sh | bash
+```
+
+*Note: If no `config.txt` exists in your current directory, it will download and use `config.example.txt` as the default configuration.*
+
+## Usage (Manual)
 
    ```bash
    git clone https://github.com/himasnhu-at/.config.git
    cd .config
    ```
 
-2. Run the main setup script:
+2. Create a `config.txt` file based on the example:
 
    ```bash
-   bash .config/main.sh
+   cp config.example.txt config.txt
    ```
 
-3. For ComfyUI setup, run:
+3. Edit `config.txt` to enable ('y') or disable ('n') the tools you want to install.
+
+4. Run the main setup script:
+
    ```bash
-   bash .config/comfy/comfy.sh
+   bash main.sh
    ```
+
+## Supported Systems
+
+- **macOS**: Uses `Homebrew`.
+- **Ubuntu/Debian**: Uses `apt`.
+- **Alpine Linux**: Uses `apk`.
 
 ## Individual Components
 
